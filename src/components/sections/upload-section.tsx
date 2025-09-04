@@ -28,18 +28,15 @@ export function UploadSection() {
   const [dragActive, setDragActive] = useState(false)
   const [textCharCount, setTextCharCount] = useState(0)
 
-  // File upload handler
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
     const file = acceptedFiles[0]
     if (!file) return
 
-    // Validate file type
     if (!file.name.match(/\.(txt|pdf)$/i)) {
       toast.error('Apenas arquivos .txt e .pdf são suportados')
       return
     }
 
-    // Validate file size (max 5MB)
     if (file.size > 5 * 1024 * 1024) {
       toast.error('Arquivo muito grande. Máximo: 5MB')
       return
@@ -67,21 +64,18 @@ export function UploadSection() {
     onDropRejected: () => setDragActive(false)
   })
 
-  // Text input handler
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const text = e.target.value
     setCurrentText(text)
     setTextCharCount(text.length)
   }
 
-  // Clear input handler
   const handleClear = () => {
     clearCurrentInput()
     setTextCharCount(0)
     toast.success('Conteúdo limpo')
   }
 
-  // Process email handler
   const handleProcess = async () => {
     setProcessing(true)
 
@@ -132,7 +126,6 @@ export function UploadSection() {
     }
   }
 
-  // Check if we can process
   const canProcess = (activeTab === 'file' && currentFile) ||
     (activeTab === 'text' && currentText.trim().length >= 10)
 
@@ -145,7 +138,6 @@ export function UploadSection() {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="bg-white dark:bg-zinc-900 rounded-3xl shadow-2xl border border-gray-100 dark:border-zinc-700 overflow-hidden"
       >
-        {/* Tab Navigation */}
         <div className="border-b border-gray-200 dark:border-zinc-700 bg-gray-50 dark:bg-zinc-800/50">
           <div className="flex">
             {[
@@ -170,7 +162,6 @@ export function UploadSection() {
           </div>
         </div>
 
-        {/* Tab Content */}
         <div className="p-8">
           <AnimatePresence mode="wait">
             {activeTab === 'file' && (
@@ -182,7 +173,6 @@ export function UploadSection() {
                 transition={{ duration: 0.3 }}
                 className="space-y-6"
               >
-                {/* Drop Zone */}
                 <div
                   {...getRootProps()}
                   className={`relative border-2 border-dashed rounded-2xl p-12 text-center transition-all duration-300 cursor-pointer ${isDragActive || dragActive
@@ -216,7 +206,6 @@ export function UploadSection() {
                     </div>
                   </motion.div>
 
-                  {/* Drag overlay */}
                   {(isDragActive || dragActive) && (
                     <motion.div
                       initial={{ opacity: 0 }}
@@ -230,7 +219,6 @@ export function UploadSection() {
                   )}
                 </div>
 
-                {/* File Preview */}
                 {currentFile && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
@@ -278,7 +266,6 @@ export function UploadSection() {
                   className="w-full px-4 py-3 border border-gray-300 dark:border-zinc-600 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent bg-white dark:bg-zinc-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 resize-none"
                 />
 
-                {/* Validation warning */}
                 {currentText.length > 0 && currentText.length < 10 && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
@@ -292,7 +279,6 @@ export function UploadSection() {
             )}
           </AnimatePresence>
 
-          {/* Action Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

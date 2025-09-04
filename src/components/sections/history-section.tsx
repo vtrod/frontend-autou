@@ -106,7 +106,6 @@ export function HistorySection() {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="bg-white dark:bg-zinc-900 rounded-3xl shadow-2xl border border-gray-100 dark:border-zinc-700 overflow-hidden"
       >
-        {/* Header */}
         <div className="p-4 border-b border-gray-200 dark:border-zinc-700">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -124,7 +123,6 @@ export function HistorySection() {
           </div>
         </div>
 
-        {/* Content */}
         <div className="p-6">
           {filteredHistory.length === 0 ? (
             <motion.div
@@ -161,7 +159,6 @@ export function HistorySection() {
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                       className="border border-gray-200 dark:border-zinc-700 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300"
                     >
-                      {/* Item Header */}
                       <div className="p-4 bg-gray-50 dark:bg-zinc-800/50">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
@@ -222,7 +219,6 @@ export function HistorySection() {
                         </div>
                       </div>
 
-                      {/* Expanded Content */}
                       <AnimatePresence>
                         {isExpanded && (
                           <motion.div

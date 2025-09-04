@@ -32,7 +32,6 @@ export function ResultsSection() {
   }
 
   const handleSaveEdit = () => {
-    // Here you would typically update the response in the store
     toast.success('Resposta editada com sucesso!')
     setEditingResponse(false)
   }
@@ -91,7 +90,6 @@ export function ResultsSection() {
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Classification Result */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -104,7 +102,6 @@ export function ResultsSection() {
                 Classificação
               </h3>
 
-              {/* Classification Badge */}
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -122,7 +119,6 @@ export function ResultsSection() {
                 {isProductive ? 'Produtivo' : 'Improdutivo'}
               </motion.div>
 
-              {/* Confidence Score */}
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-gray-600 dark:text-gray-400 font-medium">
@@ -147,7 +143,6 @@ export function ResultsSection() {
               </div>
             </div>
 
-            {/* Classification Description */}
             <div className="p-4 bg-gray-50 dark:bg-zinc-800 rounded-xl">
               <p className="text-gray-700 dark:text-gray-300 text-center">
                 {isProductive
@@ -156,7 +151,6 @@ export function ResultsSection() {
               </p>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex gap-3">
               <Button
                 variant="outline"
@@ -178,7 +172,6 @@ export function ResultsSection() {
           </div>
         </motion.div>
 
-        {/* AI Response */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -245,7 +238,6 @@ export function ResultsSection() {
         </motion.div>
       </div>
 
-      {/* Email Preview */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}

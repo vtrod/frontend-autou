@@ -47,7 +47,6 @@ export function LoadingOverlay() {
         className="bg-white dark:bg-zinc-900 rounded-3xl shadow-2xl p-8 max-w-md mx-4 border border-gray-200 dark:border-zinc-700"
       >
         <div className="text-center space-y-6">
-          {/* Main Loading Animation */}
           <div className="relative">
             <motion.div
               animate={{ rotate: 360 }}
@@ -58,8 +57,6 @@ export function LoadingOverlay() {
                 <div className="w-full h-full border-4 border-transparent border-t-primary-600 rounded-full animate-spin"></div>
               </div>
             </motion.div>
-            
-            {/* Center Icon */}
             <motion.div
               key={currentStep}
               initial={{ scale: 0.5, opacity: 0 }}
@@ -76,7 +73,6 @@ export function LoadingOverlay() {
             </motion.div>
           </div>
 
-          {/* Step Information */}
           <motion.div
             key={currentStep}
             initial={{ y: 10, opacity: 0 }}
@@ -92,16 +88,14 @@ export function LoadingOverlay() {
             </p>
           </motion.div>
 
-          {/* Progress Indicators */}
           <div className="flex justify-center gap-2">
             {steps.map((_, index) => (
               <motion.div
                 key={index}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === currentStep
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentStep
                     ? 'bg-primary-600 dark:bg-primary-400 w-8'
                     : 'bg-gray-300 dark:bg-gray-600'
-                }`}
+                  }`}
                 initial={false}
                 animate={{
                   scale: index === currentStep ? 1.2 : 1,
@@ -110,13 +104,10 @@ export function LoadingOverlay() {
             ))}
           </div>
 
-          {/* Processing Message */}
           <div className="space-y-3">
             <div className="text-sm text-gray-500 dark:text-gray-400">
               Powered by AI • Processamento seguro
             </div>
-            
-            {/* Estimated Time */}
             <div className="text-xs text-gray-400 dark:text-gray-500">
               Tempo estimado: 2-3 segundos
             </div>

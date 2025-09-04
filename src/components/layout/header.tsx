@@ -32,7 +32,6 @@ export function Header() {
     >
       <div className="container mx-auto px-4 py-4 max-w-6xl">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-3"
@@ -50,9 +49,7 @@ export function Header() {
             </div>
           </motion.div>
 
-          {/* Navigation */}
           <nav className="flex items-center gap-4">
-            {/* Theme Toggle */}
             <Button
               variant="ghost"
               size="sm"
